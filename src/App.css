@@ -12,4 +12,19 @@
   margin: 20px;
 }
 
+.app__formControl {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.app__input{
+  width: 93%;
+}
+
+.app__iconButton {
+  flex: 0;
+}
+
+
+
 
