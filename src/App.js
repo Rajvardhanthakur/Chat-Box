@@ -2,12 +2,19 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Button, FormControl, InputLabel, Input} from "@material-ui/core";
 import Message from './Message';
+import db from './firebase';
 
 function App() {
 
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([{username: "Pradeep", text: "Hii guys"}, {username: "Partik", text: "YOo budy"}]);
+  const [messages, setMessages] = useState([]);
   const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    db.collection('messages').onSnapshot(snapshot => {
+      setMessages(snapshot.docs.map(doc => doc.data()))
+    })
+  }, [])
 
 
   useEffect(() => {
@@ -17,7 +24,7 @@ function App() {
 
   const sendMessage = (event) => {
     event.preventDefault();
-    setMessages([...messages, {username: username, text: input}]);
+    setMessages([...messages, {username: username, message: input}]);
     setInput('');
   }
 
@@ -31,7 +38,7 @@ function App() {
         <FormControl>
           <InputLabel>Enter a message...</InputLabel>
           <Input value={input} onChange={event => setInput(event.target.value)}/>
-          <Button disabled={!input} varient="contained" color="primary" type='submit' onClick={sendMessage}>Send Message</Button>
+          <Button disabled={!input} variant="contained" color="primary" type='submit' onClick={sendMessage}>Send Message</Button>
         </FormControl>
         
       </form>
