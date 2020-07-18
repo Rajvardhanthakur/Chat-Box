@@ -42,7 +42,8 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Messenger Clone</h1>
+      <img src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100"></img>
+      <h1>Chat Box</h1>
       <h1>Welcome {username}</h1>     
       <form className="app__form">
         <FormControl className="app__formControl">
@@ -51,7 +52,7 @@ function App() {
           <IconButton className="app__iconButton" disabled={!input} variant="contained" color="primary" type='submit' onClick={sendMessage}>
             <SendIcon />
           </IconButton>
-          
+
         </FormControl>
         
       </form>
