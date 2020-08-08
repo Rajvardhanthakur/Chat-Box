@@ -1,3 +1,9 @@
+This is a real time chat-box application and is created with React and Firebase
+
+Here is the link you can check it out:-    https://facebook-messenger-clone-239f3.web.app/
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
